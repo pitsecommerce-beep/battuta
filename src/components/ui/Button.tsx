@@ -49,6 +49,6 @@ export function Button(props: ButtonProps): React.JSX.Element {
     return <a className={classes} {...anchorProps} />
   }
 
-  const { as: _, variant: _v, size: _s, ...buttonProps } = rest as ButtonHTMLAttributes<HTMLButtonElement>
+  const { as: _, variant: _v, size: _s, className: _c, ...buttonProps } = props as ButtonAsButton
   return <button className={classes} {...buttonProps} />
 }
