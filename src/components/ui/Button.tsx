@@ -33,7 +33,7 @@ const sizeStyles: Record<Size, string> = {
 
 /** Polymorphic button supporting `<button>` and `<a>` elements. */
 export function Button(props: ButtonProps): React.JSX.Element {
-  const { variant = 'primary', size = 'md', className = '', ...rest } = props
+  const { variant = 'primary', size = 'md', className = '' } = props
 
   const classes = [
     'inline-flex items-center justify-center rounded-xl font-semibold',
