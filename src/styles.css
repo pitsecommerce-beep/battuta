@@ -1,0 +1,183 @@
+@import 'tailwindcss';
+
+/* ══════════════════════════════════════════════ */
+/* DESIGN TOKENS / CSS CUSTOM PROPERTIES          */
+/* ══════════════════════════════════════════════ */
+@theme {
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+
+  --color-brand-50: #EEF2FF;
+  --color-brand-100: #E0E7FF;
+  --color-brand-200: #C7D2FE;
+  --color-brand-300: #A5B4FC;
+  --color-brand-400: #818CF8;
+  --color-brand-500: #6366F1;
+  --color-brand-600: #4F46E5;
+  --color-brand-700: #4338CA;
+  --color-brand-800: #3730A3;
+  --color-brand-900: #312E81;
+
+  --color-accent-400: #A78BFA;
+  --color-accent-500: #8B5CF6;
+  --color-accent-600: #7C3AED;
+
+  --color-surface-0: #030712;
+  --color-surface-50: #0A0F1E;
+  --color-surface-100: #111827;
+  --color-surface-200: #1F2937;
+  --color-surface-300: #374151;
+  --color-surface-400: #4B5563;
+
+  --color-text-primary: #F9FAFB;
+  --color-text-secondary: #9CA3AF;
+  --color-text-tertiary: #6B7280;
+
+  --color-whatsapp: #25D366;
+  --color-instagram: #E1306C;
+  --color-messenger: #0084FF;
+}
+
+/* ══════════════════════════════════════════════ */
+/* BASE STYLES                                    */
+/* ══════════════════════════════════════════════ */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-surface-0 text-text-primary font-sans antialiased;
+}
+
+::selection {
+  @apply bg-brand-500/30 text-white;
+}
+
+/* ══════════════════════════════════════════════ */
+/* REVEAL ANIMATION                               */
+/* ══════════════════════════════════════════════ */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+.reveal-delay-5 { transition-delay: 0.5s; }
+
+/* ══════════════════════════════════════════════ */
+/* GRADIENT TEXT                                   */
+/* ══════════════════════════════════════════════ */
+.gradient-text {
+  @apply bg-clip-text text-transparent;
+  background-image: linear-gradient(135deg, var(--color-brand-400), var(--color-accent-400));
+}
+
+/* ══════════════════════════════════════════════ */
+/* HERO GRID BACKGROUND                            */
+/* ══════════════════════════════════════════════ */
+.hero-grid {
+  background-image:
+    linear-gradient(rgba(99, 102, 241, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(99, 102, 241, 0.06) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+/* ══════════════════════════════════════════════ */
+/* LOGOS MARQUEE                                   */
+/* ══════════════════════════════════════════════ */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+/* ══════════════════════════════════════════════ */
+/* PRICING TOGGLE                                  */
+/* ══════════════════════════════════════════════ */
+.toggle-thumb {
+  @apply block w-5 h-5 rounded-full bg-white transition-transform duration-300;
+}
+
+.toggle-switch[data-active="true"] .toggle-thumb {
+  transform: translateX(20px);
+}
+
+/* ══════════════════════════════════════════════ */
+/* MINI CHART BAR ANIMATION                        */
+/* ══════════════════════════════════════════════ */
+@keyframes grow-bar {
+  from { height: 0; }
+  to { height: var(--height); }
+}
+
+.mini-bar {
+  animation: grow-bar 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-play-state: paused;
+}
+
+.visible .mini-bar {
+  animation-play-state: running;
+}
+
+/* ══════════════════════════════════════════════ */
+/* COUNTER ANIMATION PULSE                         */
+/* ══════════════════════════════════════════════ */
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+.badge-dot {
+  @apply relative flex h-2 w-2;
+}
+
+.badge-dot::before {
+  @apply absolute inline-flex h-full w-full rounded-full bg-brand-400 opacity-75;
+  content: '';
+  animation: ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+.badge-dot::after {
+  @apply relative inline-flex h-2 w-2 rounded-full bg-brand-500;
+  content: '';
+}
+
+@keyframes ping {
+  75%, 100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+/* ══════════════════════════════════════════════ */
+/* SCROLLBAR STYLING                               */
+/* ══════════════════════════════════════════════ */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-surface-0);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-surface-300);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-surface-400);
+}

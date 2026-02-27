@@ -1,0 +1,68 @@
+import type { PricingPlan } from '../types/pricing'
+
+export const PRICING_PLANS: PricingPlan[] = [
+  {
+    dynamic: '𝆏𝆏',
+    name: 'Pianissimo',
+    tagline: 'Para empezar suave',
+    monthlyPrice: 0,
+    annualPrice: 0,
+    cta: 'Comenzar gratis',
+    features: [
+      { label: '1 canal de Meta', included: true },
+      { label: '500 conversaciones/mes', included: true },
+      { label: '50 productos en catálogo', included: true },
+      { label: 'Seguimiento de pedidos básico', included: true },
+      { label: 'IA conversacional', included: false },
+    ],
+  },
+  {
+    dynamic: '𝆏',
+    name: 'Piano',
+    tagline: 'Suena con claridad',
+    monthlyPrice: 49,
+    annualPrice: 39,
+    cta: 'Elegir Piano',
+    features: [
+      { label: '2 canales de Meta', included: true },
+      { label: '2,000 conversaciones/mes', included: true },
+      { label: '500 productos en catálogo', included: true },
+      { label: 'Gestión de almacén', included: true },
+      { label: 'IA básica (respuestas FAQ)', included: true },
+    ],
+  },
+  {
+    dynamic: '𝆐𝆑',
+    name: 'Mezzo Forte',
+    tagline: 'El equilibrio perfecto',
+    monthlyPrice: 99,
+    annualPrice: 79,
+    cta: 'Elegir Mezzo Forte',
+    featured: true,
+    features: [
+      { label: '3 canales de Meta', included: true },
+      { label: '10,000 conversaciones/mes', included: true },
+      { label: 'Productos ilimitados', included: true },
+      { label: 'IA avanzada + entrenamiento custom', included: true },
+      { label: 'Guías de envío automáticas', included: true },
+      { label: 'Analítica y reportes', included: true },
+    ],
+  },
+  {
+    dynamic: '𝆑𝆑',
+    name: 'Fortissimo',
+    tagline: 'Potencia máxima',
+    monthlyPrice: 249,
+    annualPrice: 199,
+    cta: 'Elegir Fortissimo',
+    features: [
+      { label: 'Canales ilimitados', included: true },
+      { label: 'Conversaciones ilimitadas', included: true },
+      { label: 'Multi-almacén y sucursales', included: true },
+      { label: 'IA personalizada + API', included: true },
+      { label: 'Integraciones avanzadas', included: true },
+      { label: 'Soporte prioritario 24/7', included: true },
+      { label: 'Onboarding dedicado', included: true },
+    ],
+  },
+]
